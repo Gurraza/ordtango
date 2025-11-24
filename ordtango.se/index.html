@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2061408954010621"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://kit.fontawesome.com/b3c4e29640.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <meta charset="UTF-8">
+    <title>Ordtango - Spela Nu</title>
+
+    <!-- Required meta tags -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Spela ordstegspelet och förbättra dina ordförråd genom att ändra ett ord till ett annat genom att ändra en bokstav åt gången.">
+
+    <!-- Search engine optimization (SEO) meta tags -->
+    <meta name="keywords"
+        content="ordgåtor, ordlek, pussel, hjärngymnastik, språkträning, ordförståelse, ordträning, svenska ord, ordspelet, ordhjälp, roliga ord, logiska spel, ordsnurra, ordakrobatik, ordutmaningar, språkspel, ordbildning, språklekar, synonymjakt, ordsökning, språkträning, grammatikövningar, stavning, svenska språket, ordduell, lära sig svenska, svensk ordbok, synonymordbok, språkspel, hjärnträning">
+    <meta name="author" content="Gustav Zackariasson">
+    <meta name="robots" content="index">
+
+    <!-- Social media meta tags -->
+    <meta property="og:title" content="Ordtango - Spela Nu">
+    <meta property="og:description"
+        content="Spela ordstegspelet och förbättra dina ordförråd genom att ändra ett ord till ett annat genom att ändra en bokstav åt gången.">
+    <meta property="og:image" content="ordtango/socialbild.jpg">
+    <meta property="og:url" content="ordtango.se">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter meta tags -->
+    <meta name="twitter:title" content="Ordtango - Spela Nu">
+    <meta name="twitter:description"
+        content="Spela ordstegspelet och förbättra dina ordförråd genom att ändra ett ord till ett annat genom att ändra en bokstav åt gången.">
+    <meta name="twitter:image" content="ordtango/socialbild.jpg">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Other useful meta tags -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+</head>
+
+<body onload="scriptStart()">
+    <div class="top">
+        <div class="element">
+            <i onclick="openInfoBox()" class="fa fa-info-circle" style="font-size: 1.4rem;"></i>
+        </div>
+        <div class="element">
+            <h1>ORDTANGO</h1>
+        </div>
+        <div class="element" style="font-size: 1.4rem;">
+            <i onclick="openSettingBox()" class="fa fa-gear"></i>
+        </div>
+        <div class="element burger">
+            <div onclick="openAndHideMenu()" id="burgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <div class="popupWindow" id="burgerMenu">
+        <ul class="burgerList">
+            <li class="burgerItem"><i onclick="openInfoBox()" class="fa fa-info-circle"
+                    style="cursor: pointer; font-size: 2rem;"></i></li>
+            <li class="burgerItem"><i onclick="openSettingBox()" class="fa fa-gear"
+                    style="cursor: pointer; font-size: 2rem;"></i></li>
+        </ul>
+    </div>
+    <div class="popupWindow" id="infoBox">
+        <script>
+            if (!phoneUser) {
+                document.write('<i onclick="closeInfoBox()" class="fa fa-circle-xmark closeButton"></i>');
+            }
+        </script>
+        <h2>Så Här Spelar Du</h2>
+        <p class="exampleText">Lista ut din väg från startordet till slutordet. Varje ord du skriver <b>får bara ändra
+                på 1 bokstav</b> från ordet innan.</b></p>
+        <h3>Exempel</h3>
+        <div id="exampleBox">
+            <div class="exampleRow textColor">
+                <div class="exampleNode gray">T</div>
+                <div class="exampleNode gray">A</div>
+                <div class="exampleNode gray">N</div>
+                <div class="exampleNode gray">D</div>
+            </div>
+            <div class="exampleText"><b>TAND</b> är första ordet, <b>LUDD</b> är det sista ordet</div>
+            <div class="exampleRow">
+                <div class="exampleNode green">L</div>
+                <div class="exampleNode white">A</div>
+                <div class="exampleNode white">N</div>
+                <div class="exampleNode green">D</div>
+            </div>
+            <div class="exampleText">Vi ändrade <b>T</b> till <b>L</b> vilket bildar <b>LAND</b></div>
+            <div class="exampleRow">
+                <div class="exampleNode green">L</div>
+                <div class="exampleNode green">U</div>
+                <div class="exampleNode white">N</div>
+                <div class="exampleNode green">D</div>
+            </div>
+            <div class="exampleText">Vi ändrade <b>A</b> till <b>U</b> vilket bildar <b>LUND</b></div>
+            <div class="exampleRow">
+                <div class="exampleNode green">L</div>
+                <div class="exampleNode green">U</div>
+                <div class="exampleNode green">D</div>
+                <div class="exampleNode green">D</div>
+            </div>
+            <div class="exampleText">Och vi ändrade <b>N</b> till <b>D</b> vilket bildar <b>LUDD</b></div>
+            <div class="exampleRow textColor">
+                <div class="exampleNode gray">L</div>
+                <div class="exampleNode gray">U</div>
+                <div class="exampleNode gray">D</div>
+                <div class="exampleNode gray">D</div>
+            </div>
+            <div class="exampleText">Klart!</div>
+        </div>
+    </div>
+    <div class="popupWindow" id="settingBox">
+        <script>
+            if (!phoneUser) {
+                document.write('<i onclick="closeSettingBox()" class="fa fa-circle-xmark closeButton"></i>');
+            }
+        </script>
+        <h2>Inställningar</h2>
+        <div class="settingRow">
+            <label for="amountOfLetters">Antal bokstäver:</label>
+            <span>4<input checked value="4" class="radioB letterAmountRadio" type="radio" name="amountOfLetters"></span>
+            <span>5<input value="5" class="radioB letterAmountRadio" type="radio" name="amountOfLetters"></span>
+        </div>
+        <div class="settingRow">
+            <label for="difficulty">Svårighetsgrad:</label>
+            <span>Lätt<input value="0" class="radioB difficultyRadio" type="radio" name="difficulty"></span>
+            <span>Medium<input value="1" class="radioB difficultyRadio" type="radio" name="difficulty"></span>
+            <span>Svår<input value="2" class="radioB difficultyRadio" type="radio" name="difficulty"></span>
+            <span>Random<input checked value="3" class="radioB difficultyRadio" type="radio" name="difficulty"></span>
+
+        </div>
+        <div class="settingRow">
+            <label for="DarkTheme">Mörkt Tema</label>
+            <label class="switch" for="checkbox">
+                <input type="checkbox" id="checkbox" onclick="changeColourTheme()" />
+                <div class="slider round"></div>
+            </label>
+        </div>
+    </div>
+    <script>
+        const settings = document.getElementById("settingBox");
+        const info = document.getElementById("infoBox");
+        const overlay = document.getElementById("overlay");
+        const burgerMenu = document.getElementById("burgerMenu");
+        let isHidden = false;
+        const openInfoBox = () => {
+            closeSettingBox(true);
+            info.style.top = "50px";
+            if (!phoneUser) {
+                overlay.style.display = "block";
+                overlay.onclick = () => { closeInfoBox() }
+            }
+            else {
+                overlay.onclick = () => openAndHideMenu();
+            }
+        }
+        const closeInfoBox = (overrideOverlay = false) => {
+            info.style.top = "-100vh";
+            if (!overrideOverlay) {
+                overlay.style.display = "none";
+            }
+        }
+        const openSettingBox = () => {
+            closeInfoBox(true);
+            settings.style.top = "50px";
+            if (!phoneUser) {
+                overlay.style.display = "block";
+                overlay.onclick = () => { closeSettingBox() }
+            }
+            else {
+                overlay.onclick = () => openAndHideMenu();
+            }
+        }
+        const closeSettingBox = (overrideOverlay = false) => {
+            settings.style.top = "-100vh";
+            if (!overrideOverlay) {
+                overlay.style.display = "none";
+            }
+        }
+        const openAndHideMenu = () => {
+            const overlay = document.getElementById("overlay");
+            overlay.onclick = () => { openAndHideMenu() };
+            overlay.style.display = (isHidden ? "none" : "block");
+            burgerMenu.style.top = (isHidden ? "-100vh" : "0");
+            const burgerIcon = document.getElementById("burgerIcon");
+            if (burgerIcon.classList.contains("open")) {
+                burgerIcon.classList.remove("open");
+                closeSettingBox();
+                closeInfoBox();
+            } else {
+                burgerIcon.classList.add("open");
+            }
+            isHidden = !isHidden;
+        }
+    </script>
+    <div id="howToPlayPopup">
+        <i style="visibility: hidden;" class="fa-solid fa-x"></i>
+        <button onclick="openInfoBox()">Hur spelar man?</button>
+        <i onclick="closeHowToPlayPopup()" class="fa-solid fa-x"></i>
+    </div>
+    <div id="whatisthisword">
+        <div onclick="showDeff(0)" id="whatisword1">Ordett</div>
+        <div onclick="showDeff(1)" id="whatisword2">Ordtvå</div>
+    </div>
+    <div id="whatisthiswordpopup">
+        <div class="bg">
+            <p id="actualdefinition">alhiskudha gsfygadh bfadhfgkauyfjhagf hagf ad gfjmafjadyhfgadfil af ga
+                fiyahjgdauydga</p>
+        </div>
+    </div>
+    <main class="game">
+        <div id="gameboard" class="gameboard">
+            <script>
+                const loadGameboard = () => {
+                    let gameboard = document.getElementById("gameboard");
+                    for (let i = 0; i < 3; i++) {
+                        let row = document.createElement("div");
+                        row.classList = "gameboardRow";
+                        for (let j = 0; j < wordLength; j++) {
+                            let slot = document.createElement("span");
+                            slot.classList = "gameboardSlot";
+                            if (i == 1) {
+                                slot.classList += " middlerow";
+                            }
+                            else {
+                                slot.innerHTML = "X"
+                            }
+                            slot.id = idToString(i, j);
+                            row.appendChild(slot);
+                        }
+                        gameboard.appendChild(row);
+                    }
+                }
+            </script>
+        </div>
+        <div class="wordInfoBoxContainer">
+            <div class="wordInfoBox" id="firstInfoBox">
+                <span id="startWord">Adel</span>: <p id="defStartWord">bla bla bla bla bla bla bla bla bla bla bla bla
+                    bla bla bla bla bla bla bla bla </p>
+            </div>
+            <div class="wordInfoBox" id="secondInfoBox">
+                <span id="endWord">Adel</span>: <p id="defEndWord">bla bla bla bla bla bla bla bla bla bla bla bla bla
+                    bla bla bla bla bla bla bla </p>
+            </div>
+            <!--
+                <i onclick="openWordInfoBox(1)" class="fa fa-arrow-left" id="firstInfo"></i>
+                <i onclick="openWordInfoBox(2)" class="fa fa-arrow-right" id="secondInfo"></i>
+                -->
+        </div>
+        <div class="bottnButn">
+            <div class="reloadBtn" onclick="ledtråd()">Ledtråd</div>
+            <div class="reloadBtn" onclick="location.reload()">Nya Ord</div>
+            <div class="reloadBtn" onclick="geUpp()">Ge upp</div>
+        </div>
+        <div class="shareBox displayShareBox" id="shareBox">
+            <i onclick="hideShareBtn()" class="fa fa-circle-xmark"></i>
+            <p>Snyggt! Du klarade "<span id="ord1">ord1</span>" till "<span id="ord2">ord2</span>" på <span
+                    id="tid">50</span> sekunder. <button onclick="sendSMS()">Vill du utmana en vän?</button></p>
+        </div>
+        <div id="keyboard" class="keyboard">
+            <script>
+                let keyboard = document.getElementById("keyboard");
+                let alfabetet = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'Å'],
+                ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ö', 'Ä'],
+                ['<i class="fa-solid fa-right-to-bracket"></i>', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<i class="fa-solid fa-delete-left"></i>']];
+                for (let i = 0; i < alfabetet.length; i++) {
+                    let row = document.createElement('div');
+                    row.className = 'keyrow';
+                    for (let j = 0; j < alfabetet[i].length; j++) {
+                        let button = document.createElement('button');
+                        button.classList = "key";
+                        button.id = "KEY_" + alfabetet[i][j]
+                        button.innerHTML = alfabetet[i][j];
+                        button.value = alfabetet[i][j];
+                        row.appendChild(button);
+                    }
+                    keyboard.appendChild(row);
+                }
+            </script>
+        </div>
+    </main>
+</body>
+
+</html>
